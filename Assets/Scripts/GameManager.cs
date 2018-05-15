@@ -94,15 +94,18 @@ public class GameManager : MonoBehaviour {
 
 
     // Flip tile underscore
-    public void FlipThisTile(int thisSpot, char theLetter) {
-        Debug.Log("found " + theLetter);
+    public void FlipThisTile(int thisSpot, int letterID) {
         // Increment by 1 to avoid the parent element that I don't seem to be able to keep out of the array.
         thisSpot++;
-        Debug.Log("here at "+thisSpot);
         underscores = blankLetterHolder.GetComponentsInChildren<Transform>();
-        //underscores[thisSpot].gameObject.SetActive(false);
-        //underscores[thisSpot].GetComponent<SpriteRenderer>().sprite = 
+        Letter foundLetter = letters[letterID];
+        underscores[thisSpot].GetComponent<SpriteRenderer>().sprite = foundLetter.letterImage;
+    }
 
+
+    // Add to Hangy
+    public void HangTime() {
+        Debug.Log("oops");
     }
 
 

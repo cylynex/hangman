@@ -30,7 +30,7 @@ public class TileController : MonoBehaviour {
         for (int i = 0; i < theWord.Length; i++) {
             if (theWord[i] == letterData.letter) {
                 tileMatch = true;
-                gameManager.FlipThisTile(i,letterData.letter);
+                gameManager.FlipThisTile(i,letterData.letterID);
             } 
         }
 
@@ -42,6 +42,7 @@ public class TileController : MonoBehaviour {
         } else {
             GetComponent<SpriteRenderer>().sprite = FlippedTileBad;
             sounds[0].Play();
+            gameManager.HangTime();
         }
 
 
