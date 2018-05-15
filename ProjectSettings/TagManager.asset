@@ -3,7 +3,14 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - hang1
+  - hang2
+  - hang3
+  - hang4
+  - hang5
+  - hang6
+  - hang7
   layers:
   - Default
   - TransparentFX

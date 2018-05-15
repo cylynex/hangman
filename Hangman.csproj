@@ -333,6 +333,7 @@
   <ItemGroup>
     <Compile Include="Assets\Objects\Letter.cs" />
     <Compile Include="Assets\Scripts\GameManager.cs" />
+    <Compile Include="Assets\Scripts\LoadLevel.cs" />
     <Compile Include="Assets\Scripts\TileController.cs" />
   </ItemGroup>
   <ItemGroup>

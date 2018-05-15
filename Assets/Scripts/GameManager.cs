@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour {
 
@@ -11,6 +12,10 @@ public class GameManager : MonoBehaviour {
     public GameObject blankLetterPrefab;
     public Transform blankLetterHolder;
     public Sprite underscore;
+    public Transform[] underscores;
+
+    [Header("Word")]
+    public static string word = "cylynex";
 
     private Vector3 letterSpot;
     private Quaternion letterRotation;
@@ -19,9 +24,11 @@ public class GameManager : MonoBehaviour {
     private float letterSpotX;
     private float letterSpotY;
 
-    public static string word = "cylynex";
     private int numLetters;
-    public Transform[] underscores;
+    int misses = 0;
+
+    // Hangman stuff
+    public GameObject[] hangParts;
 
 
     void Start() {
@@ -39,6 +46,7 @@ public class GameManager : MonoBehaviour {
     // Setup the letters
     void InitLetters() {
 
+        misses = 0;
         numLetters = word.Length;
 
         // Init vector3
@@ -46,7 +54,6 @@ public class GameManager : MonoBehaviour {
 
         int lSpot = 0;
         for (int i = 0; i < letters.Length; i++) {
-            Debug.Log("lspot: " + lSpot);
             lSpot++;
             // Create the letter tile
             GameObject thisLetter = (GameObject)Instantiate(letterPrefab, letterSpot, letterRotation);
@@ -107,7 +114,39 @@ public class GameManager : MonoBehaviour {
 
     // Add to Hangy
     public void HangTime() {
-        Debug.Log("oops");
+        misses++;
+        switch(misses) {
+            case 1:
+                hangParts[0].SetActive(true);
+                break;
+            case 2:
+                hangParts[1].SetActive(true);
+                break;
+            case 3:
+                hangParts[2].SetActive(true);
+                break;
+            case 4:
+                hangParts[3].SetActive(true);
+                break;
+            case 5:
+                hangParts[4].SetActive(true);
+                break;
+            case 6:
+                hangParts[5].SetActive(true);
+                break;
+
+        }
+
+        if (misses == 6) {
+            StartCoroutine("GameOver");
+        }
+
+    }
+
+
+    IEnumerator GameOver() {
+        yield return new WaitForSeconds(3);
+        SceneManager.LoadScene("Lose");
     }
 
 
