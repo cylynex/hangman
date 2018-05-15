@@ -8,7 +8,8 @@ public class GameManager : MonoBehaviour {
     public Letter[] letters;
     public GameObject letterPrefab;
     public Transform letterHolder;
-    public GameObject blackLetterPrefab;
+    public GameObject blankLetterPrefab;
+    public Transform blankLetterHolder;
 
     private Vector3 letterSpot;
     private Quaternion letterRotation;
@@ -19,7 +20,7 @@ public class GameManager : MonoBehaviour {
     private bool line2 = false;
 
     public static string word = "cylynex";
-    public int numLetters;
+    private int numLetters;
 
 
     void Start() {
@@ -36,6 +37,9 @@ public class GameManager : MonoBehaviour {
 
     // Setup the letters
     void InitLetters() {
+
+        numLetters = word.Length;
+
         // Init vector3
         letterSpot = new Vector3(-6, 3.7f, 0);
         //letterRotation = new Vector3(0, 0, 0);
@@ -50,7 +54,7 @@ public class GameManager : MonoBehaviour {
 
             // Advance Y if we reset X if over a certain value
             if (i > 11 && line2 == false) {
-                letterSpotY = thisLetter.transform.position.y - 1.4f;
+                letterSpotY = thisLetter.transform.position.y - 0.8f;
                 letterSpotX = -6f;
                 line2 = true;
             } else {
@@ -72,11 +76,20 @@ public class GameManager : MonoBehaviour {
 
     // Setup the Tiles
     void InitTiles() {
-        int spacing = numLetters / 2;
-        float xSpot = -(spacing) + 1;
-        float ySpot = -8;
+        //float spacing = numLetters / 2;
+        //float xSpot = -(spacing) - 1;
+        float xSpot = -6f;
+        float ySpot = -4.2f;
+        Debug.Log("letters: " + numLetters);
+        Debug.Log("first x: " + xSpot);
+
         Vector3 firstSpot = new Vector3(xSpot, ySpot, 0);
-        //Instantiate
+        for (int i = 0; i < numLetters; i++) {
+            GameObject thisBlank = (GameObject)Instantiate(blankLetterPrefab, firstSpot, Quaternion.identity);
+            thisBlank.transform.SetParent(blankLetterHolder.transform);
+            xSpot += 0.7f;
+            firstSpot = new Vector3(xSpot, ySpot, 0);
+        }
     }
 
 
