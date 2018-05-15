@@ -1,12 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManager;
+using UnityEngine.SceneManagement;
 
 public class LoadLevel : MonoBehaviour {
 
     public void LoadNewLevel(string levelToLoad) {
-        SceneManager.loadScene(levelToLoad);
+        SceneManager.LoadScene(levelToLoad);
     }
 
 }

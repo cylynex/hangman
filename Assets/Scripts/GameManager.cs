@@ -25,6 +25,7 @@ public class GameManager : MonoBehaviour {
     private float letterSpotY;
 
     private int numLetters;
+    private int numLettersLeft;
     int misses = 0;
 
     // Hangman stuff
@@ -48,6 +49,7 @@ public class GameManager : MonoBehaviour {
 
         misses = 0;
         numLetters = word.Length;
+        numLettersLeft = numLetters;
 
         // Init vector3
         letterSpot = new Vector3(-6, 3.7f, 0);
@@ -109,6 +111,13 @@ public class GameManager : MonoBehaviour {
         underscores = blankLetterHolder.GetComponentsInChildren<Transform>();
         Letter foundLetter = letters[letterID];
         underscores[thisSpot].GetComponent<SpriteRenderer>().sprite = foundLetter.letterImage;
+        numLettersLeft--;
+
+        // Check for win
+        if (numLettersLeft <= 0) {
+            StartCoroutine("Win");
+        }
+
     }
 
 
@@ -144,9 +153,17 @@ public class GameManager : MonoBehaviour {
     }
 
 
+    // Lose
     IEnumerator GameOver() {
         yield return new WaitForSeconds(3);
         SceneManager.LoadScene("Lose");
+    }
+
+
+    // Win
+    IEnumerator Win() {
+        yield return new WaitForSeconds(1);
+        SceneManager.LoadScene("Win");
     }
 
 
