@@ -334,8 +334,11 @@
     <Compile Include="Assets\Objects\Letter.cs" />
     <Compile Include="Assets\Scripts\GameManager.cs" />
     <Compile Include="Assets\Scripts\LoadLevel.cs" />
+    <Compile Include="Assets\Scripts\SplashLoad.cs" />
     <Compile Include="Assets\Scripts\TileController.cs" />
+    <Compile Include="Assets\Scripts\WordController.cs" />
     <Compile Include="Assets\Scripts\Wordpicker.cs" />
+    <Compile Include="Assets\Scripts\WordTileController.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="\Volumes\Glacier\unity-projects\hangman\Hangman\Packages\com.unity.package-manager-ui\Editor\Resources\Styles\Main_Dark.uss" />

@@ -15,7 +15,7 @@ public class GameManager : MonoBehaviour {
     public Transform[] underscores;
 
     [Header("Word")]
-    public static string word = "cylynex";
+    public static string word;
 
     private Vector3 letterSpot;
     private Quaternion letterRotation;
@@ -46,6 +46,8 @@ public class GameManager : MonoBehaviour {
 
     // Setup the letters
     void InitLetters() {
+
+        word = WordController.theWord;
 
         misses = 0;
         numLetters = word.Length;

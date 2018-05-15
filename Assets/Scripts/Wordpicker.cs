@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Wordpicker : MonoBehaviour {
 
@@ -9,19 +10,27 @@ public class Wordpicker : MonoBehaviour {
     public GameObject letterPrefab;
 
     Quaternion letterRotation;
-    int lettersLeft;
+    public static int lettersLeft;
     float letterSpotX;
     float letterSpotY;
     Vector3 letterSpot;
-    int zRot;
+
+    public Text lettersCounter;
+
+    void Start() {
+        WordController.theWord = null;
+        lettersLeft = maxLetters;
+        InitLetters();
+    }
 
     // Setup the letters
     void InitLetters() {
 
+        lettersCounter.text = maxLetters.ToString();
         lettersLeft = maxLetters;
 
         // Init vector3
-        letterSpot = new Vector3(-6, 3.7f, 0);
+        letterSpot = new Vector3(-5.5f, 3.9f, 0);
 
         int lSpot = 0;
         for (int i = 0; i < letters.Length; i++) {
@@ -35,7 +44,7 @@ public class Wordpicker : MonoBehaviour {
             // Advance Y if we reset X if over a certain value
             if (lSpot > 5) {
                 letterSpotY = thisLetter.transform.position.y - 1.4f;
-                letterSpotX = -6f;
+                letterSpotX = -5.5f;
                 lSpot = 0;
             } else {
                 letterSpotY = thisLetter.transform.position.y;
@@ -44,13 +53,14 @@ public class Wordpicker : MonoBehaviour {
 
             letterSpot = new Vector3(letterSpotX, letterSpotY, 0);
 
-            // Setup some random rotation which will be used for the next tile
-            zRot = Random.Range(-20, 20);
-            letterRotation = Quaternion.Euler(thisLetter.transform.rotation.x, thisLetter.transform.rotation.y, zRot);
-
             // Send over the object
-            thisLetter.GetComponent<TileController>().letterData = letters[i];
+            thisLetter.GetComponent<WordTileController>().letterData = letters[i];
 
         }
+    }
+
+
+    void Update() {
+        lettersCounter.text = lettersLeft.ToString();
     }
 }

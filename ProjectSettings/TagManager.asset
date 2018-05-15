@@ -11,6 +11,7 @@ TagManager:
   - hang5
   - hang6
   - hang7
+  - WordControl
   layers:
   - Default
   - TransparentFX
@@ -22,7 +23,7 @@ TagManager:
   - 
   - 
   - 
-  - 
+  - Tiles
   - 
   - 
   - 
