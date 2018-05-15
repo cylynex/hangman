@@ -1,0 +1,16 @@
+﻿<Properties StartupConfiguration="{D4D9041F-75F3-E5DD-A5BD-A8BEF827FB85}|">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Objects/Letter.cs">
+    <Files>
+      <File FileName="Assets/Objects/Letter.cs" Line="8" Column="24" />
+      <File FileName="Assets/Scripts/GameManager.cs" Line="31" Column="56" />
+      <File FileName="Assets/Scripts/TileController.cs" Line="14" Column="36" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.ItemProperties.Hangman PreferredExecutionTarget="Unity.Editor" />
+  <MultiItemStartupConfigurations />
+</Properties>
