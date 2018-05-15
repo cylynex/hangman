@@ -335,6 +335,7 @@
     <Compile Include="Assets\Scripts\GameManager.cs" />
     <Compile Include="Assets\Scripts\LoadLevel.cs" />
     <Compile Include="Assets\Scripts\TileController.cs" />
+    <Compile Include="Assets\Scripts\Wordpicker.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="\Volumes\Glacier\unity-projects\hangman\Hangman\Packages\com.unity.package-manager-ui\Editor\Resources\Styles\Main_Dark.uss" />
