@@ -18,7 +18,6 @@ public class GameManager : MonoBehaviour {
 
     private float letterSpotX;
     private float letterSpotY;
-    private bool line2 = false;
 
     public static string word = "cylynex";
     private int numLetters;
@@ -44,24 +43,27 @@ public class GameManager : MonoBehaviour {
 
         // Init vector3
         letterSpot = new Vector3(-6, 3.7f, 0);
-        //letterRotation = new Vector3(0, 0, 0);
 
+        int lSpot = 0;
         for (int i = 0; i < letters.Length; i++) {
+            Debug.Log("lspot: " + lSpot);
+            lSpot++;
             // Create the letter tile
             GameObject thisLetter = (GameObject)Instantiate(letterPrefab, letterSpot, letterRotation);
             thisLetter.transform.SetParent(letterHolder.transform);
 
             // Setup next spot for next tile
-            letterSpotX = thisLetter.transform.position.x + 1f;
+            letterSpotX = thisLetter.transform.position.x + 1.2f;
 
             // Advance Y if we reset X if over a certain value
-            if (i > 11 && line2 == false) {
-                letterSpotY = thisLetter.transform.position.y - 0.8f;
+            if (lSpot > 5) {
+                letterSpotY = thisLetter.transform.position.y - 1.4f;
                 letterSpotX = -6f;
-                line2 = true;
+                lSpot = 0;
             } else {
                 letterSpotY = thisLetter.transform.position.y;
             }
+
 
             letterSpot = new Vector3(letterSpotX, letterSpotY, 0);
 
