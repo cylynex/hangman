@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour {
     public Transform letterHolder;
     public GameObject blankLetterPrefab;
     public Transform blankLetterHolder;
+    public Sprite underscore;
 
     private Vector3 letterSpot;
     private Quaternion letterRotation;
@@ -21,6 +22,7 @@ public class GameManager : MonoBehaviour {
 
     public static string word = "cylynex";
     private int numLetters;
+    public Transform[] underscores;
 
 
     void Start() {
@@ -80,8 +82,6 @@ public class GameManager : MonoBehaviour {
         //float xSpot = -(spacing) - 1;
         float xSpot = -6f;
         float ySpot = -4.2f;
-        Debug.Log("letters: " + numLetters);
-        Debug.Log("first x: " + xSpot);
 
         Vector3 firstSpot = new Vector3(xSpot, ySpot, 0);
         for (int i = 0; i < numLetters; i++) {
@@ -90,6 +90,19 @@ public class GameManager : MonoBehaviour {
             xSpot += 0.7f;
             firstSpot = new Vector3(xSpot, ySpot, 0);
         }
+    }
+
+
+    // Flip tile underscore
+    public void FlipThisTile(int thisSpot, char theLetter) {
+        Debug.Log("found " + theLetter);
+        // Increment by 1 to avoid the parent element that I don't seem to be able to keep out of the array.
+        thisSpot++;
+        Debug.Log("here at "+thisSpot);
+        underscores = blankLetterHolder.GetComponentsInChildren<Transform>();
+        //underscores[thisSpot].gameObject.SetActive(false);
+        //underscores[thisSpot].GetComponent<SpriteRenderer>().sprite = 
+
     }
 
 

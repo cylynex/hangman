@@ -11,5 +11,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c98ac9a4d9936436b8103f4513e7b21f, type: 3}
   m_Name: L
   m_EditorClassIdentifier: 
+  letterID: 11
   letter: 108
   letterImage: {fileID: 21300022, guid: 027b9b3f0c6ad4ce5a87db56980be3e0, type: 3}
