@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour {
     public Letter[] letters;
     public GameObject letterPrefab;
     public Transform letterHolder;
+    public GameObject blackLetterPrefab;
 
     private Vector3 letterSpot;
     private Quaternion letterRotation;
@@ -17,7 +18,7 @@ public class GameManager : MonoBehaviour {
     private float letterSpotY;
     private bool line2 = false;
 
-    public static string word = "CYLYNEX";
+    public static string word = "cylynex";
     public int numLetters;
 
 
@@ -26,9 +27,9 @@ public class GameManager : MonoBehaviour {
         // Setup the Letters
         InitLetters();
 
-        // Setup the word
-        numLetters = word.Length;
-        Debug.Log(numLetters + " letters in the word");
+        // Setup tiles for the word.
+        InitTiles(); 
+
 
     }
 	
@@ -66,6 +67,16 @@ public class GameManager : MonoBehaviour {
             thisLetter.GetComponent<TileController>().letterData = letters[i];
 
         }
+    }
+
+
+    // Setup the Tiles
+    void InitTiles() {
+        int spacing = numLetters / 2;
+        float xSpot = -(spacing) + 1;
+        float ySpot = -8;
+        Vector3 firstSpot = new Vector3(xSpot, ySpot, 0);
+        //Instantiate
     }
 
 

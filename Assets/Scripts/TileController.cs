@@ -7,7 +7,6 @@ public class TileController : MonoBehaviour {
     public Letter letterData;
     private string theWord;
     private Sprite currentTileImage;
-    private char theLetter;
 
     void Start() {
         GetComponent<SpriteRenderer>().sprite = letterData.letterImage;
@@ -21,9 +20,9 @@ public class TileController : MonoBehaviour {
 
         for (int i = 0; i < theWord.Length; i++) {
             Debug.Log(theWord[i]+ " - "+letterData.letter);
-            /*if (theWord[i] == letterData.letter[i]) {
+            if (theWord[i] == letterData.letter) {
                 Debug.Log("Letter Matched Flip Tile");
-            }*/
+            }
         }
 
     }

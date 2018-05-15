@@ -318,6 +318,9 @@ MonoBehaviour:
   letterPrefab: {fileID: 1567987772745466, guid: 2c6c0a715c25944caa3969dc4756ecd0,
     type: 2}
   letterHolder: {fileID: 1198877276}
+  blackLetterPrefab: {fileID: 1481084510598358, guid: 7487f7ed263814b90ac199db7249733f,
+    type: 2}
+  numLetters: 0
 --- !u!4 &570092096
 Transform:
   m_ObjectHideFlags: 0
@@ -330,6 +333,34 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1012017886
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1012017887}
+  m_Layer: 0
+  m_Name: Blank Word Letters
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1012017887
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1012017886}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.1, y: -4.13, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1198877275
 GameObject:
@@ -554,7 +585,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 7.8, y: 355.1}
+  m_AnchoredPosition: {x: 7.799988, y: 355.1}
   m_SizeDelta: {x: 15.6, y: -710.3}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1602087740
