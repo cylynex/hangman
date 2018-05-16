@@ -13,6 +13,7 @@ public class GameManager : MonoBehaviour {
     public Transform blankLetterHolder;
     public Sprite underscore;
     public Transform[] underscores;
+    public string[] wordDictionary;
 
     [Header("Word")]
     public static string word;
@@ -48,6 +49,11 @@ public class GameManager : MonoBehaviour {
     void InitLetters() {
 
         word = WordController.theWord;
+
+        // If word is null, they are playing 1P mode.  Pick a random word
+        if (word == null) {
+            word = SelectRandomWord();
+        }
 
         misses = 0;
         numLetters = word.Length;
@@ -166,6 +172,13 @@ public class GameManager : MonoBehaviour {
     IEnumerator Win() {
         yield return new WaitForSeconds(1);
         SceneManager.LoadScene("Win");
+    }
+
+
+    string SelectRandomWord() {
+        int randWord = Random.Range(0, wordDictionary.Length);
+        string theWord = wordDictionary[randWord];
+        return theWord;
     }
 
 
